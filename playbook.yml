@@ -1,0 +1,17 @@
+- name: create files 
+  hosts: webservers
+  become: yes
+
+  tasks:
+  - name: install httpd package
+    yum:
+            name: httpd
+            state: present
+
+  - name: create files on webservers
+    file:
+            dest: "{{ file_path | default('/var/www/html/welcome.html', true)}}"
+            state: touch
+            mode: 0644
+            owner: l_root
+            group: l_root

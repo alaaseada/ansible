@@ -1,0 +1,6 @@
+[webservers]
+rhel-7.home.com
+
+
+[dbservers]
+rhel-6.home.com
